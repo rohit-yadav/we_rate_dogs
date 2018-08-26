@@ -22,3 +22,22 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from wordcloud import WordCloud,STOPWORDS
 
+
+# In[2]:
+
+
+# Twitter api
+consumer_key = 'HIDDEN'
+consumer_secret = 'HIDDEN'
+access_token = 'HIDDEN'
+access_secret = 'HIDDEN'
+
+# Function to get twitter connection
+def twitter_connection(consumer_key, consumer_secret, access_token, access_secret):
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_secret)
+
+    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+    
+    return api
+
