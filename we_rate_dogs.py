@@ -69,3 +69,11 @@ if not os.path.exists(folder_name):
 with open('data/image_predictions.tsv', 'wb') as file:
     file.write(r.content)
 
+
+# In[6]:
+
+
+# Read the data into a data frame
+archive_df = pd.read_csv("data/twitter-archive-enhanced.csv")
+predictions_df = pd.read_csv("data/image_predictions.tsv", sep="\t")
+
