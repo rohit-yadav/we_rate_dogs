@@ -47,3 +47,25 @@ def twitter_connection(consumer_key, consumer_secret, access_token, access_secre
 
 api = twitter_connection(consumer_key, consumer_secret, access_token, access_secret)
 
+
+# In[4]:
+
+
+# Downloading data from the url
+url = 'https://d17h27t6h515a5.cloudfront.net/topher/2017/August/599fd2ad_image-predictions/image-predictions.tsv'
+
+# Request the url
+r = requests.get(url)
+
+
+# In[5]:
+
+
+# Store the downloaded data
+folder_name = 'data'
+if not os.path.exists(folder_name):
+    os.makedirs(folder_name)
+
+with open('data/image_predictions.tsv', 'wb') as file:
+    file.write(r.content)
+
