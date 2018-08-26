@@ -77,3 +77,48 @@ with open('data/image_predictions.tsv', 'wb') as file:
 archive_df = pd.read_csv("data/twitter-archive-enhanced.csv")
 predictions_df = pd.read_csv("data/image_predictions.tsv", sep="\t")
 
+
+# In[7]:
+
+
+# Getting tweet ids
+archive_tweet_id = list(archive_df.tweet_id)
+prediction_tweet_id = list(predictions_df.tweet_id)
+
+
+# In[8]:
+
+
+len(archive_tweet_id)
+
+
+# In[9]:
+
+
+len(prediction_tweet_id)
+
+
+# In[10]:
+
+
+tweet_ids = archive_tweet_id + prediction_tweet_id
+
+
+# In[11]:
+
+
+len(tweet_ids)
+
+
+# In[12]:
+
+
+# Keeping unique tweet ids
+tweet_ids = list(set(tweet_ids))
+
+
+# In[13]:
+
+
+len(tweet_ids)
+
