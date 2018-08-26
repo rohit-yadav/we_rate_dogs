@@ -41,3 +41,9 @@ def twitter_connection(consumer_key, consumer_secret, access_token, access_secre
     
     return api
 
+
+# In[3]:
+
+
+api = twitter_connection(consumer_key, consumer_secret, access_token, access_secret)
+
