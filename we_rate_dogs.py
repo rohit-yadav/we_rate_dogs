@@ -162,3 +162,19 @@ def get_tweet_details():
         value = 1
     return value
 
+
+# In[15]:
+
+
+value = get_tweet_details()
+
+
+# In[16]:
+
+
+if value == 1:
+    print(len(working_ids))
+    print(len(removed_ids))
+else:
+    print("File is alread present so this is not needed")
+
