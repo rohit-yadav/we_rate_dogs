@@ -12221,7 +12221,7 @@ I will do a wrangling, analyzing and visualization of the tweet data of the WeRa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Making a copy of the data frames</span>
@@ -12231,6 +12231,1931 @@ I will do a wrangling, analyzing and visualization of the tweet data of the WeRa
 </pre></div>
 
 </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>timestamp</th>
+      <th>source</th>
+      <th>text</th>
+      <th>retweeted_status_id</th>
+      <th>retweeted_status_user_id</th>
+      <th>retweeted_status_timestamp</th>
+      <th>expanded_urls</th>
+      <th>rating_numerator</th>
+      <th>rating_denominator</th>
+      <th>name</th>
+      <th>doggo</th>
+      <th>floofer</th>
+      <th>pupper</th>
+      <th>puppo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>892420643555336193</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-08-01 16:23:56 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Phineas. He's a mystical boy. Only eve...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/892420643...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>Phineas</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>892177421306343426</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-08-01 00:17:27 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Tilly. She's just checking pup on you....</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/892177421...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>Tilly</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>891815181378084864</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-31 00:18:03 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Archie. He is a rare Norwegian Pouncin...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/891815181...</td>
+      <td>12</td>
+      <td>10</td>
+      <td>Archie</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>891689557279858688</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-30 15:58:51 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Darla. She commenced a snooze mid meal...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/891689557...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>Darla</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>891327558926688256</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-29 16:00:24 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Franklin. He would like you to stop ca...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/891327558...</td>
+      <td>12</td>
+      <td>10</td>
+      <td>Franklin</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>contributors</th>
+      <th>coordinates</th>
+      <th>created_at</th>
+      <th>display_text_range</th>
+      <th>entities</th>
+      <th>extended_entities</th>
+      <th>favorite_count</th>
+      <th>favorited</th>
+      <th>full_text</th>
+      <th>geo</th>
+      <th>...</th>
+      <th>quoted_status</th>
+      <th>quoted_status_id</th>
+      <th>quoted_status_id_str</th>
+      <th>quoted_status_permalink</th>
+      <th>retweet_count</th>
+      <th>retweeted</th>
+      <th>retweeted_status</th>
+      <th>source</th>
+      <th>truncated</th>
+      <th>user</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Mon Jul 31 00:18:03 +0000 2017</td>
+      <td>[0, 121]</td>
+      <td>{'hashtags': [], 'symbols': [], 'user_mentions...</td>
+      <td>{'media': [{'id': 891815175371796480, 'id_str'...</td>
+      <td>24837</td>
+      <td>False</td>
+      <td>This is Archie. He is a rare Norwegian Pouncin...</td>
+      <td>None</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4136</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>False</td>
+      <td>{'id': 4196983835, 'id_str': '4196983835', 'na...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Tue Aug 01 16:23:56 +0000 2017</td>
+      <td>[0, 85]</td>
+      <td>{'hashtags': [], 'symbols': [], 'user_mentions...</td>
+      <td>{'media': [{'id': 892420639486877696, 'id_str'...</td>
+      <td>38490</td>
+      <td>False</td>
+      <td>This is Phineas. He's a mystical boy. Only eve...</td>
+      <td>None</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8478</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>False</td>
+      <td>{'id': 4196983835, 'id_str': '4196983835', 'na...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Sat Jul 29 16:00:24 +0000 2017</td>
+      <td>[0, 138]</td>
+      <td>{'hashtags': [{'text': 'BarkWeek', 'indices': ...</td>
+      <td>{'media': [{'id': 891327551943041024, 'id_str'...</td>
+      <td>40021</td>
+      <td>False</td>
+      <td>This is Franklin. He would like you to stop ca...</td>
+      <td>None</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9333</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>False</td>
+      <td>{'id': 4196983835, 'id_str': '4196983835', 'na...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Sun Jul 30 15:58:51 +0000 2017</td>
+      <td>[0, 79]</td>
+      <td>{'hashtags': [], 'symbols': [], 'user_mentions...</td>
+      <td>{'media': [{'id': 891689552724799489, 'id_str'...</td>
+      <td>41859</td>
+      <td>False</td>
+      <td>This is Darla. She commenced a snooze mid meal...</td>
+      <td>None</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8596</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>False</td>
+      <td>{'id': 4196983835, 'id_str': '4196983835', 'na...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Fri Jul 28 16:27:12 +0000 2017</td>
+      <td>[0, 140]</td>
+      <td>{'hashtags': [], 'symbols': [], 'user_mentions...</td>
+      <td>{'media': [{'id': 890971906207338496, 'id_str'...</td>
+      <td>11751</td>
+      <td>False</td>
+      <td>Meet Jax. He enjoys ice cream so much he gets ...</td>
+      <td>None</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2057</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>False</td>
+      <td>{'id': 4196983835, 'id_str': '4196983835', 'na...</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>jpg_url</th>
+      <th>img_num</th>
+      <th>p1</th>
+      <th>p1_conf</th>
+      <th>p1_dog</th>
+      <th>p2</th>
+      <th>p2_conf</th>
+      <th>p2_dog</th>
+      <th>p3</th>
+      <th>p3_conf</th>
+      <th>p3_dog</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>666020888022790149</td>
+      <td>https://pbs.twimg.com/media/CT4udn0WwAA0aMy.jpg</td>
+      <td>1</td>
+      <td>Welsh_springer_spaniel</td>
+      <td>0.465074</td>
+      <td>True</td>
+      <td>collie</td>
+      <td>0.156665</td>
+      <td>True</td>
+      <td>Shetland_sheepdog</td>
+      <td>0.061428</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>666029285002620928</td>
+      <td>https://pbs.twimg.com/media/CT42GRgUYAA5iDo.jpg</td>
+      <td>1</td>
+      <td>redbone</td>
+      <td>0.506826</td>
+      <td>True</td>
+      <td>miniature_pinscher</td>
+      <td>0.074192</td>
+      <td>True</td>
+      <td>Rhodesian_ridgeback</td>
+      <td>0.072010</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>666033412701032449</td>
+      <td>https://pbs.twimg.com/media/CT4521TWwAEvMyu.jpg</td>
+      <td>1</td>
+      <td>German_shepherd</td>
+      <td>0.596461</td>
+      <td>True</td>
+      <td>malinois</td>
+      <td>0.138584</td>
+      <td>True</td>
+      <td>bloodhound</td>
+      <td>0.116197</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>666044226329800704</td>
+      <td>https://pbs.twimg.com/media/CT5Dr8HUEAA-lEu.jpg</td>
+      <td>1</td>
+      <td>Rhodesian_ridgeback</td>
+      <td>0.408143</td>
+      <td>True</td>
+      <td>redbone</td>
+      <td>0.360687</td>
+      <td>True</td>
+      <td>miniature_pinscher</td>
+      <td>0.222752</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>666049248165822465</td>
+      <td>https://pbs.twimg.com/media/CT5IQmsXIAAKY4A.jpg</td>
+      <td>1</td>
+      <td>miniature_pinscher</td>
+      <td>0.560311</td>
+      <td>True</td>
+      <td>Rottweiler</td>
+      <td>0.243682</td>
+      <td>True</td>
+      <td>Doberman</td>
+      <td>0.154629</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2356 entries, 0 to 2355
+Data columns (total 17 columns):
+tweet_id                      2356 non-null int64
+in_reply_to_status_id         78 non-null float64
+in_reply_to_user_id           78 non-null float64
+timestamp                     2356 non-null object
+source                        2356 non-null object
+text                          2356 non-null object
+retweeted_status_id           181 non-null float64
+retweeted_status_user_id      181 non-null float64
+retweeted_status_timestamp    181 non-null object
+expanded_urls                 2297 non-null object
+rating_numerator              2356 non-null int64
+rating_denominator            2356 non-null int64
+name                          2356 non-null object
+doggo                         2356 non-null object
+floofer                       2356 non-null object
+pupper                        2356 non-null object
+puppo                         2356 non-null object
+dtypes: float64(4), int64(3), object(10)
+memory usage: 313.0+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2342 entries, 0 to 2341
+Data columns (total 32 columns):
+contributors                     0 non-null object
+coordinates                      0 non-null object
+created_at                       2342 non-null object
+display_text_range               2342 non-null object
+entities                         2342 non-null object
+extended_entities                2067 non-null object
+favorite_count                   2342 non-null int64
+favorited                        2342 non-null bool
+full_text                        2342 non-null object
+geo                              0 non-null object
+id                               2342 non-null int64
+id_str                           2342 non-null object
+in_reply_to_screen_name          78 non-null object
+in_reply_to_status_id            78 non-null float64
+in_reply_to_status_id_str        78 non-null object
+in_reply_to_user_id              78 non-null float64
+in_reply_to_user_id_str          78 non-null object
+is_quote_status                  2342 non-null bool
+lang                             2342 non-null object
+place                            1 non-null object
+possibly_sensitive               2205 non-null object
+possibly_sensitive_appealable    2205 non-null object
+quoted_status                    24 non-null object
+quoted_status_id                 26 non-null float64
+quoted_status_id_str             26 non-null object
+quoted_status_permalink          26 non-null object
+retweet_count                    2342 non-null int64
+retweeted                        2342 non-null bool
+retweeted_status                 168 non-null object
+source                           2342 non-null object
+truncated                        2342 non-null bool
+user                             2342 non-null object
+dtypes: bool(4), float64(3), int64(3), object(22)
+memory usage: 521.5+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions_clean</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2075 entries, 0 to 2074
+Data columns (total 12 columns):
+tweet_id    2075 non-null int64
+jpg_url     2075 non-null object
+img_num     2075 non-null int64
+p1          2075 non-null object
+p1_conf     2075 non-null float64
+p1_dog      2075 non-null bool
+p2          2075 non-null object
+p2_conf     2075 non-null float64
+p2_dog      2075 non-null bool
+p3          2075 non-null object
+p3_conf     2075 non-null float64
+p3_dog      2075 non-null bool
+dtypes: bool(3), float64(3), int64(2), object(4)
+memory usage: 152.1+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>retweeted_status_id</th>
+      <th>retweeted_status_user_id</th>
+      <th>rating_numerator</th>
+      <th>rating_denominator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.356000e+03</td>
+      <td>7.800000e+01</td>
+      <td>7.800000e+01</td>
+      <td>1.810000e+02</td>
+      <td>1.810000e+02</td>
+      <td>2356.000000</td>
+      <td>2356.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>7.427716e+17</td>
+      <td>7.455079e+17</td>
+      <td>2.014171e+16</td>
+      <td>7.720400e+17</td>
+      <td>1.241698e+16</td>
+      <td>13.126486</td>
+      <td>10.455433</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6.856705e+16</td>
+      <td>7.582492e+16</td>
+      <td>1.252797e+17</td>
+      <td>6.236928e+16</td>
+      <td>9.599254e+16</td>
+      <td>45.876648</td>
+      <td>6.745237</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>6.660209e+17</td>
+      <td>6.658147e+17</td>
+      <td>1.185634e+07</td>
+      <td>6.661041e+17</td>
+      <td>7.832140e+05</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>6.783989e+17</td>
+      <td>6.757419e+17</td>
+      <td>3.086374e+08</td>
+      <td>7.186315e+17</td>
+      <td>4.196984e+09</td>
+      <td>10.000000</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>7.196279e+17</td>
+      <td>7.038708e+17</td>
+      <td>4.196984e+09</td>
+      <td>7.804657e+17</td>
+      <td>4.196984e+09</td>
+      <td>11.000000</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7.993373e+17</td>
+      <td>8.257804e+17</td>
+      <td>4.196984e+09</td>
+      <td>8.203146e+17</td>
+      <td>4.196984e+09</td>
+      <td>12.000000</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>8.924206e+17</td>
+      <td>8.862664e+17</td>
+      <td>8.405479e+17</td>
+      <td>8.874740e+17</td>
+      <td>7.874618e+17</td>
+      <td>1776.000000</td>
+      <td>170.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>favorite_count</th>
+      <th>id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>quoted_status_id</th>
+      <th>retweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2342.000000</td>
+      <td>2.342000e+03</td>
+      <td>7.800000e+01</td>
+      <td>7.800000e+01</td>
+      <td>2.600000e+01</td>
+      <td>2342.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>8041.837319</td>
+      <td>7.422646e+17</td>
+      <td>7.455079e+17</td>
+      <td>2.014171e+16</td>
+      <td>8.113972e+17</td>
+      <td>2980.563194</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12365.108172</td>
+      <td>6.837466e+16</td>
+      <td>7.582492e+16</td>
+      <td>1.252797e+17</td>
+      <td>6.295843e+16</td>
+      <td>4990.429809</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>6.660209e+17</td>
+      <td>6.658147e+17</td>
+      <td>1.185634e+07</td>
+      <td>6.721083e+17</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1394.250000</td>
+      <td>6.783509e+17</td>
+      <td>6.757419e+17</td>
+      <td>3.086374e+08</td>
+      <td>7.761338e+17</td>
+      <td>599.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3508.500000</td>
+      <td>7.186224e+17</td>
+      <td>7.038708e+17</td>
+      <td>4.196984e+09</td>
+      <td>8.281173e+17</td>
+      <td>1395.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>9879.750000</td>
+      <td>7.987010e+17</td>
+      <td>8.257804e+17</td>
+      <td>4.196984e+09</td>
+      <td>8.637581e+17</td>
+      <td>3478.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>162303.000000</td>
+      <td>8.924206e+17</td>
+      <td>8.862664e+17</td>
+      <td>8.405479e+17</td>
+      <td>8.860534e+17</td>
+      <td>84178.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions_clean</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>img_num</th>
+      <th>p1_conf</th>
+      <th>p2_conf</th>
+      <th>p3_conf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.075000e+03</td>
+      <td>2075.000000</td>
+      <td>2075.000000</td>
+      <td>2.075000e+03</td>
+      <td>2.075000e+03</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>7.384514e+17</td>
+      <td>1.203855</td>
+      <td>0.594548</td>
+      <td>1.345886e-01</td>
+      <td>6.032417e-02</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6.785203e+16</td>
+      <td>0.561875</td>
+      <td>0.271174</td>
+      <td>1.006657e-01</td>
+      <td>5.090593e-02</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>6.660209e+17</td>
+      <td>1.000000</td>
+      <td>0.044333</td>
+      <td>1.011300e-08</td>
+      <td>1.740170e-10</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>6.764835e+17</td>
+      <td>1.000000</td>
+      <td>0.364412</td>
+      <td>5.388625e-02</td>
+      <td>1.622240e-02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>7.119988e+17</td>
+      <td>1.000000</td>
+      <td>0.588230</td>
+      <td>1.181810e-01</td>
+      <td>4.944380e-02</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7.932034e+17</td>
+      <td>1.000000</td>
+      <td>0.843855</td>
+      <td>1.955655e-01</td>
+      <td>9.180755e-02</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>8.924206e+17</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>4.880140e-01</td>
+      <td>2.734190e-01</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="p">[</span><span class="n">archive_clean</span><span class="o">.</span><span class="n">retweeted_status_id</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[28]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>timestamp</th>
+      <th>source</th>
+      <th>text</th>
+      <th>retweeted_status_id</th>
+      <th>retweeted_status_user_id</th>
+      <th>retweeted_status_timestamp</th>
+      <th>expanded_urls</th>
+      <th>rating_numerator</th>
+      <th>rating_denominator</th>
+      <th>name</th>
+      <th>doggo</th>
+      <th>floofer</th>
+      <th>pupper</th>
+      <th>puppo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>888202515573088257</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-21 01:02:36 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @dog_rates: This is Canela. She attempted s...</td>
+      <td>8.874740e+17</td>
+      <td>4.196984e+09</td>
+      <td>2017-07-19 00:47:34 +0000</td>
+      <td>https://twitter.com/dog_rates/status/887473957...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>Canela</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>886054160059072513</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-15 02:45:48 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @Athletics: 12/10 #BATP https://t.co/WxwJmv...</td>
+      <td>8.860537e+17</td>
+      <td>1.960740e+07</td>
+      <td>2017-07-15 02:44:07 +0000</td>
+      <td>https://twitter.com/dog_rates/status/886053434...</td>
+      <td>12</td>
+      <td>10</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>885311592912609280</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-13 01:35:06 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @dog_rates: This is Lilly. She just paralle...</td>
+      <td>8.305833e+17</td>
+      <td>4.196984e+09</td>
+      <td>2017-02-12 01:04:29 +0000</td>
+      <td>https://twitter.com/dog_rates/status/830583320...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>Lilly</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>879130579576475649</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-06-26 00:13:58 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @dog_rates: This is Emmy. She was adopted t...</td>
+      <td>8.780576e+17</td>
+      <td>4.196984e+09</td>
+      <td>2017-06-23 01:10:23 +0000</td>
+      <td>https://twitter.com/dog_rates/status/878057613...</td>
+      <td>14</td>
+      <td>10</td>
+      <td>Emmy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>878404777348136964</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-06-24 00:09:53 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @dog_rates: Meet Shadow. In an attempt to r...</td>
+      <td>8.782815e+17</td>
+      <td>4.196984e+09</td>
+      <td>2017-06-23 16:00:04 +0000</td>
+      <td>https://www.gofundme.com/3yd6y1c,https://twitt...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>Shadow</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="p">[</span><span class="n">archive_clean</span><span class="o">.</span><span class="n">rating_denominator</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>timestamp</th>
+      <th>source</th>
+      <th>text</th>
+      <th>retweeted_status_id</th>
+      <th>retweeted_status_user_id</th>
+      <th>retweeted_status_timestamp</th>
+      <th>expanded_urls</th>
+      <th>rating_numerator</th>
+      <th>rating_denominator</th>
+      <th>name</th>
+      <th>doggo</th>
+      <th>floofer</th>
+      <th>pupper</th>
+      <th>puppo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>313</th>
+      <td>835246439529840640</td>
+      <td>8.352460e+17</td>
+      <td>26259576.0</td>
+      <td>2017-02-24 21:54:03 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>@jonnysun @Lin_Manuel ok jomny I know you're e...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>960</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>832088576586297345</td>
+      <td>8.320875e+17</td>
+      <td>30582082.0</td>
+      <td>2017-02-16 04:45:50 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>@docmisterio account started on 11/15/15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>15</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>433</th>
+      <td>820690176645140481</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-01-15 17:52:40 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>The floofs have been released I repeat the flo...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/820690176...</td>
+      <td>84</td>
+      <td>70</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>516</th>
+      <td>810984652412424192</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2016-12-19 23:06:23 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>Meet Sam. She smiles 24/7 &amp;amp; secretly aspir...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.gofundme.com/sams-smile,https://tw...</td>
+      <td>24</td>
+      <td>7</td>
+      <td>Sam</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>784</th>
+      <td>775096608509886464</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2016-09-11 22:20:06 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @dog_rates: After so many requests, this is...</td>
+      <td>7.403732e+17</td>
+      <td>4.196984e+09</td>
+      <td>2016-06-08 02:41:38 +0000</td>
+      <td>https://twitter.com/dog_rates/status/740373189...</td>
+      <td>9</td>
+      <td>11</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="p">[</span><span class="n">archive_clean</span><span class="o">.</span><span class="n">rating_numerator</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>timestamp</th>
+      <th>source</th>
+      <th>text</th>
+      <th>retweeted_status_id</th>
+      <th>retweeted_status_user_id</th>
+      <th>retweeted_status_timestamp</th>
+      <th>expanded_urls</th>
+      <th>rating_numerator</th>
+      <th>rating_denominator</th>
+      <th>name</th>
+      <th>doggo</th>
+      <th>floofer</th>
+      <th>pupper</th>
+      <th>puppo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>45</th>
+      <td>883482846933004288</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-08 00:28:19 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Bella. She hopes her smile made you sm...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/883482846...</td>
+      <td>5</td>
+      <td>10</td>
+      <td>Bella</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>848212111729840128</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-04-01 16:35:01 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is Jerry. He's doing a distinguished tong...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/848212111...</td>
+      <td>6</td>
+      <td>10</td>
+      <td>Jerry</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>835152434251116546</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-02-24 15:40:31 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>When you're so blinded by your systematic plag...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/835152434...</td>
+      <td>0</td>
+      <td>10</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>826598799820865537</td>
+      <td>8.265984e+17</td>
+      <td>4.196984e+09</td>
+      <td>2017-02-01 01:11:25 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>I was going to do 007/10, but the joke wasn't ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>10</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>462</th>
+      <td>817502432452313088</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-01-06 22:45:43 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>RT @dog_rates: Meet Herschel. He's slightly bi...</td>
+      <td>6.924173e+17</td>
+      <td>4.196984e+09</td>
+      <td>2016-01-27 18:42:06 +0000</td>
+      <td>https://twitter.com/dog_rates/status/692417313...</td>
+      <td>7</td>
+      <td>10</td>
+      <td>Herschel</td>
+      <td>None</td>
+      <td>None</td>
+      <td>pupper</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="p">[</span><span class="n">archive_clean</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>timestamp</th>
+      <th>source</th>
+      <th>text</th>
+      <th>retweeted_status_id</th>
+      <th>retweeted_status_user_id</th>
+      <th>retweeted_status_timestamp</th>
+      <th>expanded_urls</th>
+      <th>rating_numerator</th>
+      <th>rating_denominator</th>
+      <th>name</th>
+      <th>doggo</th>
+      <th>floofer</th>
+      <th>pupper</th>
+      <th>puppo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>56</th>
+      <td>881536004380872706</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-07-02 15:32:16 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>Here is a pupper approaching maximum borkdrive...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/881536004...</td>
+      <td>14</td>
+      <td>10</td>
+      <td>a</td>
+      <td>None</td>
+      <td>None</td>
+      <td>pupper</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>649</th>
+      <td>792913359805018113</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2016-10-31 02:17:31 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>Here is a perfect example of someone who has t...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/792913359...</td>
+      <td>13</td>
+      <td>10</td>
+      <td>a</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>801</th>
+      <td>772581559778025472</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2016-09-04 23:46:12 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>Guys this is getting so out of hand. We only r...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/772581559...</td>
+      <td>10</td>
+      <td>10</td>
+      <td>a</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1002</th>
+      <td>747885874273214464</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2016-06-28 20:14:22 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>This is a mighty rare blue-tailed hammer sherk...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/747885874...</td>
+      <td>8</td>
+      <td>10</td>
+      <td>a</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1004</th>
+      <td>747816857231626240</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2016-06-28 15:40:07 +0000</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" r...</td>
+      <td>Viewer discretion is advised. This is a terrib...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dog_rates/status/747816857...</td>
+      <td>4</td>
+      <td>10</td>
+      <td>a</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;a href=&#34;http://twitter.com/download/iphone&#34; rel=&#34;nofollow&#34;&gt;Twitter for iPhone&lt;/a&gt;     2221
+&lt;a href=&#34;http://vine.co&#34; rel=&#34;nofollow&#34;&gt;Vine - Make a Scene&lt;/a&gt;                          91
+&lt;a href=&#34;http://twitter.com&#34; rel=&#34;nofollow&#34;&gt;Twitter Web Client&lt;/a&gt;                       33
+&lt;a href=&#34;https://about.twitter.com/products/tweetdeck&#34; rel=&#34;nofollow&#34;&gt;TweetDeck&lt;/a&gt;      11
+Name: source, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="o">.</span><span class="n">rating_numerator</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12      558
+11      464
+10      461
+13      351
+9       158
+8       102
+7        55
+14       54
+5        37
+6        32
+3        19
+4        17
+1         9
+2         9
+420       2
+0         2
+15        2
+75        2
+80        1
+20        1
+24        1
+26        1
+44        1
+50        1
+60        1
+165       1
+84        1
+88        1
+144       1
+182       1
+143       1
+666       1
+960       1
+1776      1
+17        1
+27        1
+45        1
+99        1
+121       1
+204       1
+Name: rating_numerator, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="o">.</span><span class="n">rating_denominator</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[35]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10     2333
+11        3
+50        3
+80        2
+20        2
+2         1
+16        1
+40        1
+70        1
+15        1
+90        1
+110       1
+120       1
+130       1
+150       1
+170       1
+7         1
+0         1
+Name: rating_denominator, dtype: int64</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 

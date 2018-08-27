@@ -201,11 +201,107 @@ all_tweet_df = pd.DataFrame(all_tweets)
 # - archive_df - Got from Udacity
 # - predictions_df- Downloaded from the url
 
-# In[22]:
+# In[18]:
 
 
 # Making a copy of the data frames
 archive_clean = archive_df.copy()
 all_tweet_clean = all_tweet_df.copy()
 predictions_clean = predictions_df.copy()
+
+
+# In[19]:
+
+
+archive_clean.head()
+
+
+# In[20]:
+
+
+all_tweet_clean.head()
+
+
+# In[21]:
+
+
+predictions_clean.head()
+
+
+# In[22]:
+
+
+archive_df.info()
+
+
+# In[23]:
+
+
+all_tweet_clean.info()
+
+
+# In[24]:
+
+
+predictions_clean.info()
+
+
+# In[25]:
+
+
+archive_clean.describe()
+
+
+# In[26]:
+
+
+all_tweet_clean.describe()
+
+
+# In[27]:
+
+
+predictions_clean.describe()
+
+
+# In[28]:
+
+
+archive_clean[archive_clean.retweeted_status_id.notnull()].head()
+
+
+# In[29]:
+
+
+archive_clean[archive_clean.rating_denominator != 10].head()
+
+
+# In[30]:
+
+
+archive_clean[archive_clean.rating_numerator < 10].head()
+
+
+# In[32]:
+
+
+archive_clean[archive_clean.name == "a"].head()
+
+
+# In[33]:
+
+
+archive_clean.source.value_counts()
+
+
+# In[34]:
+
+
+archive_clean.rating_numerator.value_counts()
+
+
+# In[35]:
+
+
+archive_clean.rating_denominator.value_counts()
 
