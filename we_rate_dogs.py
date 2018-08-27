@@ -195,3 +195,8 @@ with open("data/tweet_json.txt") as f:
 # Creating a data frame with all the tweet details
 all_tweet_df = pd.DataFrame(all_tweets)
 
+
+# **Now we have three data frames**
+# - all_tweet_df - Extracted from the API
+# - archive_df - Got from Udacity
+# - predictions_df- Downloaded from the url
