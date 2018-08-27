@@ -200,3 +200,12 @@ all_tweet_df = pd.DataFrame(all_tweets)
 # - all_tweet_df - Extracted from the API
 # - archive_df - Got from Udacity
 # - predictions_df- Downloaded from the url
+
+# In[22]:
+
+
+# Making a copy of the data frames
+archive_clean = archive_df.copy()
+all_tweet_clean = all_tweet_df.copy()
+predictions_clean = predictions_df.copy()
+
