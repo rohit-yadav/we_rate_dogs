@@ -178,3 +178,20 @@ if value == 1:
 else:
     print("File is alread present so this is not needed")
 
+
+# In[17]:
+
+
+# To hold the tweets details
+all_tweets = []
+
+# Read the file to add the details to a list
+with open("data/tweet_json.txt") as f:
+    for line in f:
+        # Converting the string into a dictionary
+        data = json.loads(line) 
+        all_tweets.append(data)
+
+# Creating a data frame with all the tweet details
+all_tweet_df = pd.DataFrame(all_tweets)
+
