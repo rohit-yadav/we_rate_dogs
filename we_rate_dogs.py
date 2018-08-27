@@ -122,3 +122,43 @@ tweet_ids = list(set(tweet_ids))
 
 len(tweet_ids)
 
+
+# In[14]:
+
+
+# Extracting tweet details from the API and storing it in a .txt file
+# Collecting id which are still there
+working_ids = []
+
+# Tweet id of tweet which are deleted
+removed_ids = []
+
+def get_tweet_details():
+    if os.path.isfile("data/tweet_json.txt"):
+        print("File exists, no need to extract again")
+        value = 0
+    else:
+        # Count the progress
+        count = 0
+
+        # Opening a file to write on
+        with open('data/tweet_json.txt', 'w') as file:
+            start = time.time()
+            for tweet_id in tweet_ids:
+                count = count + 1
+                # Writing the data to a file - line by line
+                try:
+                    status = api.get_status(tweet_id, tweet_mode = 'extended')
+                    file.write(json.dumps(status._json))
+                    file.write('\n')
+                    working_ids.append(tweet_id)
+                    print("{}) Successful id: {}".format(count, tweet_id))
+                # Handeling exception
+                except:
+                    removed_ids.append(tweet_id)
+                    print("{}) Failed id: {}".format(count, tweet_id))
+            end = time.time()
+            print("Time taken: {}".format(end - start))
+        value = 1
+    return value
+

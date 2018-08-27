@@ -12068,6 +12068,53 @@ I will do a wrangling, analyzing and visualization of the tweet data of the WeRa
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extracting tweet details from the API and storing it in a .txt file</span>
+<span class="c1"># Collecting id which are still there</span>
+<span class="n">working_ids</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Tweet id of tweet which are deleted</span>
+<span class="n">removed_ids</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">get_tweet_details</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;data/tweet_json.txt&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File exists, no need to extract again&quot;</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Count the progress</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Opening a file to write on</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/tweet_json.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">tweet_id</span> <span class="ow">in</span> <span class="n">tweet_ids</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="c1"># Writing the data to a file - line by line</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">status</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_status</span><span class="p">(</span><span class="n">tweet_id</span><span class="p">,</span> <span class="n">tweet_mode</span> <span class="o">=</span> <span class="s1">&#39;extended&#39;</span><span class="p">)</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">_json</span><span class="p">))</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="n">working_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tweet_id</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">) Successful id: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">tweet_id</span><span class="p">))</span>
+                <span class="c1"># Handeling exception</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">removed_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tweet_id</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">) Failed id: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">tweet_id</span><span class="p">))</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time taken: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
