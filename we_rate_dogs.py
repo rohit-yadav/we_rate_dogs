@@ -403,3 +403,25 @@ archive_clean = archive_clean[archive_clean.in_reply_to_status_id.isnull()]
 
 archive_clean[archive_clean.in_reply_to_status_id.notnull()]
 
+
+# ##### `archive_clean`: **A better way for values in source would be the name - Iphone, web etc**
+# 
+# **Define:**
+# 
+# Remove the tags and href just keep the source name not the link
+# 
+# **Code:**
+
+# In[42]:
+
+
+archive_clean.source = archive_clean.source.str.extract('(W\w+\sC\w+|iP\w+|V\w+|twe\w+)', expand=True)
+
+
+# **Test**
+
+# In[43]:
+
+
+archive_clean.source.value_counts()
+
