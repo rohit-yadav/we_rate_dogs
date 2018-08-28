@@ -425,3 +425,25 @@ archive_clean.source = archive_clean.source.str.extract('(W\w+\sC\w+|iP\w+|V\w+|
 
 archive_clean.source.value_counts()
 
+
+# ##### `archive_clean`: **Extract ratings from the text columns**
+# 
+# **Define:**
+# 
+# Extract ratings from the tweet text. Rating also includes decimal values.
+# 
+# **Code:**
+
+# In[44]:
+
+
+archive_clean[['full_rating', 'dump']] = archive_clean.text.str.extract('((\d+.)?\d+/\d\d+)', expand = True)
+
+
+# **Test**
+
+# In[45]:
+
+
+archive_clean.full_rating.value_counts()
+

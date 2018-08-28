@@ -14556,6 +14556,108 @@ Name: source, dtype: int64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="archive_clean:-Extract-ratings-from-the-text-columns"><code>archive_clean</code>: <strong>Extract ratings from the text columns</strong><a class="anchor-link" href="#archive_clean:-Extract-ratings-from-the-text-columns">&#182;</a></h5><p><strong>Define:</strong></p>
+<p>Extract ratings from the tweet text. Rating also includes decimal values.</p>
+<p><strong>Code:</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="p">[[</span><span class="s1">&#39;full_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;dump&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">archive_clean</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;((\d+.)?\d+/\d\d+)&#39;</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Test</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive_clean</span><span class="o">.</span><span class="n">full_rating</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[45]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12/10       486
+10/10       436
+11/10       413
+13/10       287
+9/10        153
+8/10         98
+7/10         51
+14/10        38
+5/10         33
+6/10         32
+3/10         19
+4/10         15
+2/10          9
+1/10          4
+165/150       1
+50/50         1
+420/10        1
+44/40         1
+13.5/10       1
+121/110       1
+11.27/10      1
+88/80         1
+99/90         1
+60/50         1
+84/70         1
+204/170       1
+9.75/10       1
+45/50         1
+1776/10       1
+11.26/10      1
+9/11          1
+7/11          1
+80/80         1
+144/120       1
+4/20          1
+0/10          1
+Name: full_rating, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
