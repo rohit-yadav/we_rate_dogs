@@ -381,3 +381,25 @@ archive_clean = archive_clean[archive_clean.retweeted_status_id.isnull()]
 
 archive_clean[archive_clean.retweeted_status_id.notnull()]
 
+
+# ##### `archive_clean`: **Remove in reply to user id**
+# 
+# **Define:**
+# 
+# Not all reply tweets have rating in them. It's better to remove them.
+# 
+# **Code:**
+
+# In[40]:
+
+
+archive_clean = archive_clean[archive_clean.in_reply_to_status_id.isnull()]
+
+
+# **Test**
+
+# In[41]:
+
+
+archive_clean[archive_clean.in_reply_to_status_id.notnull()]
+
