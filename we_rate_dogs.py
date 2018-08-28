@@ -316,7 +316,7 @@ archive_clean.rating_denominator.value_counts()
 # - The html tags doesn't make sense. A better way for values in source would be the name - Iphone, web etc
 # - Ratings (Numerator) only has intergers, it didn't included the decimal ratings.
 # - Rating on (Denominator) doesn't include value less than 10 which is not correct.
-# 
+# - tweet_id 810984652412424192 doesn't have any rating in it
 # - Names are sometimes preposition (a, an, the .. ). For tweet_id 666063827256086533 the name is **the**
 # - Dog stages are not correct
 # - Keep the same name of columns in both the all_tweet_clean and archive_clean
