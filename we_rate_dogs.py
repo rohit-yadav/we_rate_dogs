@@ -447,3 +447,49 @@ archive_clean[['full_rating', 'dump']] = archive_clean.text.str.extract('((\d+.)
 
 archive_clean.full_rating.value_counts()
 
+
+# ##### `archive_clean`: **Fix Numerator and Denominator**
+# 
+# **Define:**
+# 
+# Include the decimal values in numerator too by spliting the full_rating column
+# 
+# **Code:**
+
+# In[46]:
+
+
+archive_clean[['rating_numerator','rating_denominator']] = archive_clean.full_rating.str.split("/",expand=True)
+
+
+# **Test**
+
+# In[47]:
+
+
+archive_clean.rating_numerator.value_counts()
+
+
+# In[48]:
+
+
+archive_clean.rating_denominator.value_counts()
+
+
+# In[49]:
+
+
+archive_clean[['full_rating', 'rating_numerator', 'rating_denominator']].head(5)
+
+
+# In[50]:
+
+
+archive_clean.info()
+
+
+# In[51]:
+
+
+archive_clean[archive_clean.rating_numerator.isnull()]
+
