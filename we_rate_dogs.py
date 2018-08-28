@@ -359,3 +359,25 @@ archive_clean['timestamp'] = pd.to_datetime(archive_clean.timestamp)
 
 archive_clean.timestamp.describe()
 
+
+# ##### `archive_clean`: **Remove retweeted tweets which are 181 of all the tweets**
+# 
+# **Define:**
+# 
+# Removing retweeted data. Keeping only direct tweets.
+# 
+# **Code:**
+
+# In[38]:
+
+
+archive_clean = archive_clean[archive_clean.retweeted_status_id.isnull()]
+
+
+# **Test**
+
+# In[39]:
+
+
+archive_clean[archive_clean.retweeted_status_id.notnull()]
+
