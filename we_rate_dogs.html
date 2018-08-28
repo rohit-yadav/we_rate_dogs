@@ -14160,6 +14160,42 @@ Name: rating_denominator, dtype: int64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Quality">Quality<a class="anchor-link" href="#Quality">&#182;</a></h3><p><code>archive_clean</code> table</p>
+<ul>
+<li>Timestamp should be converted to datatime</li>
+<li>Retweeted tweets which are 181 of all the tweets</li>
+<li>In in_reply_tweets doesn't have ratings in all of them</li>
+<li>The html tags doesn't make sense. A better way for values in source would be the name - Iphone, web etc</li>
+<li>Ratings (Numerator) only has intergers, it didn't included the decimal ratings.</li>
+<li><p>Rating on (Denominator) doesn't include value less than 10 which is not correct.</p>
+</li>
+<li><p>Names are sometimes preposition (a, an, the .. ). For tweet_id 666063827256086533 the name is <strong>the</strong></p>
+</li>
+<li>Dog stages are not correct</li>
+<li>Keep the same name of columns in both the all_tweet_clean and archive_clean</li>
+<li>Extract rating from text into a new columns</li>
+</ul>
+<p><code>predictions_clean</code> <strong>table</strong></p>
+<ul>
+<li>p1, p2, p3 have sometimes "-" and other times "_" between words</li>
+<li>columns p1, p2 and p3 values have both lower and upper case</li>
+</ul>
+<p><code>all_tweet_clean</code> <strong>table</strong></p>
+<ul>
+<li>Remove unwanted columns</li>
+</ul>
+<h3 id="Tidiness">Tidiness<a class="anchor-link" href="#Tidiness">&#182;</a></h3><ul>
+<li>Merge data frames to get retweets and favorite counts</li>
+<li>Dog stage are in different columns</li>
+</ul>
+
+</div>
+</div>
+</div>
     </div>
   </div>
 </body>

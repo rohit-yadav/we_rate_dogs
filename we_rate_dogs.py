@@ -305,3 +305,33 @@ archive_clean.rating_numerator.value_counts()
 
 archive_clean.rating_denominator.value_counts()
 
+
+# ### Quality 
+# 
+# `archive_clean` table
+# 
+# - Timestamp should be converted to datatime
+# - Retweeted tweets which are 181 of all the tweets
+# - In in_reply_tweets doesn't have ratings in all of them
+# - The html tags doesn't make sense. A better way for values in source would be the name - Iphone, web etc
+# - Ratings (Numerator) only has intergers, it didn't included the decimal ratings.
+# - Rating on (Denominator) doesn't include value less than 10 which is not correct.
+# 
+# - Names are sometimes preposition (a, an, the .. ). For tweet_id 666063827256086533 the name is **the**
+# - Dog stages are not correct
+# - Keep the same name of columns in both the all_tweet_clean and archive_clean
+# - Extract rating from text into a new columns
+# 
+# `predictions_clean` **table**
+# 
+# - p1, p2, p3 have sometimes "-" and other times "_" between words
+# - columns p1, p2 and p3 values have both lower and upper case
+# 
+# `all_tweet_clean` **table**
+# 
+# - Remove unwanted columns
+# 
+# ### Tidiness
+# 
+# - Merge data frames to get retweets and favorite counts
+# - Dog stage are in different columns
