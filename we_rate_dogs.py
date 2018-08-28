@@ -335,3 +335,27 @@ archive_clean.rating_denominator.value_counts()
 # 
 # - Merge data frames to get retweets and favorite counts
 # - Dog stage are in different columns
+
+# ## Cleaning
+
+# ##### `archive_clean`: **Timestamp should be converted to datatime**
+# 
+# **Define:**
+# 
+# Convert the time-date from string to datetime
+# 
+# **Code:**
+
+# In[36]:
+
+
+archive_clean['timestamp'] = pd.to_datetime(archive_clean.timestamp)
+
+
+# **Test**
+
+# In[37]:
+
+
+archive_clean.timestamp.describe()
+
