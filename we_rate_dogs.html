@@ -15478,6 +15478,106 @@ Name: stage, dtype: int64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="archive_clean,-all_tweet_clean:-match-column-names"><code>archive_clean</code>, <code>all_tweet_clean</code>: <strong>match column names</strong><a class="anchor-link" href="#archive_clean,-all_tweet_clean:-match-column-names">&#182;</a></h5><p><strong>Define:</strong></p>
+<p>Use tweet_id instead of id in all_tweet_clean</p>
+<p><strong>Code:</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;tweet_id&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Test</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2342 entries, 0 to 2341
+Data columns (total 32 columns):
+contributors                     0 non-null object
+coordinates                      0 non-null object
+created_at                       2342 non-null object
+display_text_range               2342 non-null object
+entities                         2342 non-null object
+extended_entities                2067 non-null object
+favorite_count                   2342 non-null int64
+favorited                        2342 non-null bool
+full_text                        2342 non-null object
+geo                              0 non-null object
+tweet_id                         2342 non-null int64
+id_str                           2342 non-null object
+in_reply_to_screen_name          78 non-null object
+in_reply_to_status_id            78 non-null float64
+in_reply_to_status_id_str        78 non-null object
+in_reply_to_user_id              78 non-null float64
+in_reply_to_user_id_str          78 non-null object
+is_quote_status                  2342 non-null bool
+lang                             2342 non-null object
+place                            1 non-null object
+possibly_sensitive               2205 non-null object
+possibly_sensitive_appealable    2205 non-null object
+quoted_status                    24 non-null object
+quoted_status_id                 26 non-null float64
+quoted_status_id_str             26 non-null object
+quoted_status_permalink          26 non-null object
+retweet_count                    2342 non-null int64
+retweeted                        2342 non-null bool
+retweeted_status                 168 non-null object
+source                           2342 non-null object
+truncated                        2342 non-null bool
+user                             2342 non-null object
+dtypes: bool(4), float64(3), int64(3), object(22)
+memory usage: 521.5+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>

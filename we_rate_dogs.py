@@ -575,3 +575,25 @@ archive_clean[archive_clean.name == 'An']
 
 archive_clean[archive_clean.name == 'a']
 
+
+# ##### `archive_clean`, `all_tweet_clean`: **match column names**
+# 
+# **Define:**
+# 
+# Use tweet_id instead of id in all_tweet_clean
+# 
+# **Code:**
+
+# In[59]:
+
+
+all_tweet_clean.rename(columns = {'id':'tweet_id'}, inplace = True)
+
+
+# **Test**
+
+# In[60]:
+
+
+all_tweet_clean.info()
+
