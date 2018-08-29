@@ -771,3 +771,33 @@ twitter_archive_master_clean[['rating_numerator', 'rating_denominator']] = twitt
 
 twitter_archive_master_clean[twitter_archive_master_clean.tweet_id == 716439118184652801]
 
+
+# ##### `twitter_archive_master_clean`: **Remove unwanted columns**
+# 
+# **Define**
+# 
+# Remove columns which won't be needed in further analysis
+# 
+# **Code**
+
+# In[82]:
+
+
+remove_col = ['in_reply_to_status_id','in_reply_to_user_id','retweeted_status_id',
+              'retweeted_status_user_id','retweeted_status_timestamp','dump',
+              'floofer','doggo','pupper','puppo']
+
+
+# In[83]:
+
+
+twitter_archive_master_clean.drop(remove_col, axis=1, inplace=True)
+
+
+# **Test**
+
+# In[84]:
+
+
+twitter_archive_master_clean.info()
+
