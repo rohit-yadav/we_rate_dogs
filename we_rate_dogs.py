@@ -285,25 +285,25 @@ archive_clean[archive_clean.rating_denominator != 10].head()
 archive_clean[archive_clean.rating_numerator < 10].head()
 
 
-# In[32]:
+# In[31]:
 
 
 archive_clean[archive_clean.name == "a"].head()
 
 
-# In[33]:
+# In[32]:
 
 
 archive_clean.source.value_counts()
 
 
-# In[34]:
+# In[33]:
 
 
 archive_clean.rating_numerator.value_counts()
 
 
-# In[35]:
+# In[34]:
 
 
 archive_clean.rating_denominator.value_counts()
@@ -349,7 +349,7 @@ archive_clean.rating_denominator.value_counts()
 # 
 # **Code:**
 
-# In[36]:
+# In[35]:
 
 
 archive_clean['timestamp'] = pd.to_datetime(archive_clean.timestamp)
@@ -357,7 +357,7 @@ archive_clean['timestamp'] = pd.to_datetime(archive_clean.timestamp)
 
 # **Test**
 
-# In[37]:
+# In[36]:
 
 
 archive_clean.timestamp.describe()
@@ -371,7 +371,7 @@ archive_clean.timestamp.describe()
 # 
 # **Code:**
 
-# In[38]:
+# In[37]:
 
 
 archive_clean = archive_clean[archive_clean.retweeted_status_id.isnull()]
@@ -379,7 +379,7 @@ archive_clean = archive_clean[archive_clean.retweeted_status_id.isnull()]
 
 # **Test**
 
-# In[39]:
+# In[38]:
 
 
 archive_clean[archive_clean.retweeted_status_id.notnull()]
@@ -393,7 +393,7 @@ archive_clean[archive_clean.retweeted_status_id.notnull()]
 # 
 # **Code:**
 
-# In[40]:
+# In[39]:
 
 
 archive_clean = archive_clean[archive_clean.in_reply_to_status_id.isnull()]
@@ -401,7 +401,7 @@ archive_clean = archive_clean[archive_clean.in_reply_to_status_id.isnull()]
 
 # **Test**
 
-# In[41]:
+# In[40]:
 
 
 archive_clean[archive_clean.in_reply_to_status_id.notnull()]
@@ -415,7 +415,7 @@ archive_clean[archive_clean.in_reply_to_status_id.notnull()]
 # 
 # **Code:**
 
-# In[42]:
+# In[41]:
 
 
 archive_clean.source = archive_clean.source.str.extract('(W\w+\sC\w+|iP\w+|V\w+|twe\w+)', expand=True)
@@ -423,7 +423,7 @@ archive_clean.source = archive_clean.source.str.extract('(W\w+\sC\w+|iP\w+|V\w+|
 
 # **Test**
 
-# In[43]:
+# In[42]:
 
 
 archive_clean.source.value_counts()
@@ -437,7 +437,7 @@ archive_clean.source.value_counts()
 # 
 # **Code:**
 
-# In[44]:
+# In[43]:
 
 
 archive_clean[['full_rating', 'dump']] = archive_clean.text.str.extract('((\d+.)?\d+/\d\d+)', expand = True)
@@ -445,7 +445,7 @@ archive_clean[['full_rating', 'dump']] = archive_clean.text.str.extract('((\d+.)
 
 # **Test**
 
-# In[45]:
+# In[44]:
 
 
 archive_clean.full_rating.value_counts()
@@ -459,7 +459,7 @@ archive_clean.full_rating.value_counts()
 # 
 # **Code:**
 
-# In[46]:
+# In[45]:
 
 
 archive_clean[['rating_numerator','rating_denominator']] = archive_clean.full_rating.str.split("/",expand=True)
@@ -467,32 +467,54 @@ archive_clean[['rating_numerator','rating_denominator']] = archive_clean.full_ra
 
 # **Test**
 
-# In[47]:
+# In[46]:
 
 
 archive_clean.rating_numerator.value_counts()
 
 
-# In[48]:
+# In[47]:
 
 
 archive_clean.rating_denominator.value_counts()
 
 
-# In[49]:
+# In[48]:
 
 
 archive_clean[['full_rating', 'rating_numerator', 'rating_denominator']].head(5)
 
 
-# In[50]:
+# In[49]:
 
 
 archive_clean.info()
 
 
-# In[51]:
+# In[50]:
 
 
 archive_clean[archive_clean.rating_numerator.isnull()]
+
+
+# ##### `archive_clean`: **tweet_id: 810984652412424192 doesn't have any rating in it**
+# 
+# **Define:**
+# 
+# Remove the observation with tweet_id as 810984652412424192.
+# 
+# **Code**
+
+# In[51]:
+
+
+archive_clean = archive_clean[archive_clean.full_rating.notnull()]
+
+
+# **Test**
+
+# In[52]:
+
+
+archive_clean[archive_clean.full_rating.isnull()]
 
