@@ -15578,6 +15578,329 @@ memory usage: 521.5+ KB
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="all_tweet_clean:-Drop-unwanted-columns"><code>all_tweet_clean</code>: <strong>Drop unwanted columns</strong><a class="anchor-link" href="#all_tweet_clean:-Drop-unwanted-columns">&#182;</a></h5><p><strong>Define:</strong></p>
+<p>Drop columns which will not be used in future analysis</p>
+<p><strong>Code</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_tweet_clean</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[62]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;contributors&#39;,
+ &#39;coordinates&#39;,
+ &#39;created_at&#39;,
+ &#39;display_text_range&#39;,
+ &#39;entities&#39;,
+ &#39;extended_entities&#39;,
+ &#39;favorite_count&#39;,
+ &#39;favorited&#39;,
+ &#39;full_text&#39;,
+ &#39;geo&#39;,
+ &#39;tweet_id&#39;,
+ &#39;id_str&#39;,
+ &#39;in_reply_to_screen_name&#39;,
+ &#39;in_reply_to_status_id&#39;,
+ &#39;in_reply_to_status_id_str&#39;,
+ &#39;in_reply_to_user_id&#39;,
+ &#39;in_reply_to_user_id_str&#39;,
+ &#39;is_quote_status&#39;,
+ &#39;lang&#39;,
+ &#39;place&#39;,
+ &#39;possibly_sensitive&#39;,
+ &#39;possibly_sensitive_appealable&#39;,
+ &#39;quoted_status&#39;,
+ &#39;quoted_status_id&#39;,
+ &#39;quoted_status_id_str&#39;,
+ &#39;quoted_status_permalink&#39;,
+ &#39;retweet_count&#39;,
+ &#39;retweeted&#39;,
+ &#39;retweeted_status&#39;,
+ &#39;source&#39;,
+ &#39;truncated&#39;,
+ &#39;user&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keep_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tweet_id&quot;</span><span class="p">,</span><span class="s2">&quot;retweet_count&quot;</span><span class="p">,</span><span class="s2">&quot;favorite_count&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">drop_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">all_columns</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keep_columns</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">drop_columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[65]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;contributors&#39;,
+ &#39;coordinates&#39;,
+ &#39;created_at&#39;,
+ &#39;display_text_range&#39;,
+ &#39;entities&#39;,
+ &#39;extended_entities&#39;,
+ &#39;favorited&#39;,
+ &#39;full_text&#39;,
+ &#39;geo&#39;,
+ &#39;id_str&#39;,
+ &#39;in_reply_to_screen_name&#39;,
+ &#39;in_reply_to_status_id&#39;,
+ &#39;in_reply_to_status_id_str&#39;,
+ &#39;in_reply_to_user_id&#39;,
+ &#39;in_reply_to_user_id_str&#39;,
+ &#39;is_quote_status&#39;,
+ &#39;lang&#39;,
+ &#39;place&#39;,
+ &#39;possibly_sensitive&#39;,
+ &#39;possibly_sensitive_appealable&#39;,
+ &#39;quoted_status&#39;,
+ &#39;quoted_status_id&#39;,
+ &#39;quoted_status_id_str&#39;,
+ &#39;quoted_status_permalink&#39;,
+ &#39;retweeted&#39;,
+ &#39;retweeted_status&#39;,
+ &#39;source&#39;,
+ &#39;truncated&#39;,
+ &#39;user&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">drop_columns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Test</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[67]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>favorite_count</th>
+      <th>tweet_id</th>
+      <th>retweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>24837</td>
+      <td>891815181378084864</td>
+      <td>4136</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>38490</td>
+      <td>892420643555336193</td>
+      <td>8478</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40021</td>
+      <td>891327558926688256</td>
+      <td>9333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>41859</td>
+      <td>891689557279858688</td>
+      <td>8596</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11751</td>
+      <td>890971913173991426</td>
+      <td>2057</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_tweet_clean</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2342 entries, 0 to 2341
+Data columns (total 3 columns):
+favorite_count    2342 non-null int64
+tweet_id          2342 non-null int64
+retweet_count     2342 non-null int64
+dtypes: int64(3)
+memory usage: 55.0 KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>

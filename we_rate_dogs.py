@@ -597,3 +597,61 @@ all_tweet_clean.rename(columns = {'id':'tweet_id'}, inplace = True)
 
 all_tweet_clean.info()
 
+
+# ##### `all_tweet_clean`: **Drop unwanted columns**
+# 
+# **Define:**
+# 
+# Drop columns which will not be used in future analysis
+# 
+# **Code**
+
+# In[61]:
+
+
+all_columns = list(all_tweet_clean)
+
+
+# In[62]:
+
+
+all_columns
+
+
+# In[63]:
+
+
+keep_columns = ["tweet_id","retweet_count","favorite_count"]
+
+
+# In[64]:
+
+
+drop_columns = [x for x in all_columns if x not in keep_columns]
+
+
+# In[65]:
+
+
+drop_columns
+
+
+# In[66]:
+
+
+all_tweet_clean.drop(drop_columns, axis=1, inplace=True)
+
+
+# **Test**
+
+# In[67]:
+
+
+all_tweet_clean.head()
+
+
+# In[68]:
+
+
+all_tweet_clean.info()
+
