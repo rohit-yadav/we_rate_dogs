@@ -541,3 +541,37 @@ archive_clean['stage'] = data.str.extract('(doggo|floofer|pupper|puppo)', expand
 
 archive_clean.stage.value_counts()
 
+
+# ##### `archive_clean`: **Dog names have a, an, the.**
+# 
+# **Define:**
+# 
+# Removing names with a or an or the.
+# 
+# **Code:**
+
+# In[55]:
+
+
+archive_clean['name'] = archive_clean.name.replace(['a','an','the'], None)
+
+
+# **Test**
+
+# In[56]:
+
+
+archive_clean[archive_clean.name == 'The']
+
+
+# In[57]:
+
+
+archive_clean[archive_clean.name == 'An']
+
+
+# In[58]:
+
+
+archive_clean[archive_clean.name == 'a']
+
