@@ -687,3 +687,52 @@ twitter_archive_master_clean = twitter_archive_master.copy()
 
 twitter_archive_master_clean.info()
 
+
+# ### Check for more quality issues
+
+# In[72]:
+
+
+numarator_outlier = twitter_archive_master_clean.rating_numerator.value_counts()
+
+
+# In[73]:
+
+
+numarator_outlier = dict(numarator_outlier)
+
+
+# In[74]:
+
+
+numarator_outlier
+
+
+# In[75]:
+
+
+outlier = []
+for key in numarator_outlier.keys():
+    if numarator_outlier.get(key) <= 5:
+        outlier.append(list(twitter_archive_master_clean[twitter_archive_master_clean.rating_numerator == key].tweet_id))
+    else:
+        continue
+
+
+# In[76]:
+
+
+flat_outlier = []
+for sublist in outlier:
+    for element in sublist:
+        flat_outlier.append(element)
+
+
+# In[77]:
+
+
+# Set working directory
+os.chdir(os.getcwd()+'/data')
+# To check manually
+twitter_archive_master_clean[twitter_archive_master_clean.tweet_id.isin(flat_outlier)].to_csv("check_numerator_value.csv")
+

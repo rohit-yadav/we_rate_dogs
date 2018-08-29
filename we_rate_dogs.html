@@ -16008,6 +16008,155 @@ memory usage: 376.4+ KB
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Check-for-more-quality-issues">Check for more quality issues<a class="anchor-link" href="#Check-for-more-quality-issues">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numarator_outlier</span> <span class="o">=</span> <span class="n">twitter_archive_master_clean</span><span class="o">.</span><span class="n">rating_numerator</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numarator_outlier</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">numarator_outlier</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numarator_outlier</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[74]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;12&#39;: 485,
+ &#39;10&#39;: 436,
+ &#39;11&#39;: 413,
+ &#39;13&#39;: 287,
+ &#39;9&#39;: 154,
+ &#39;8&#39;: 98,
+ &#39;7&#39;: 52,
+ &#39;14&#39;: 38,
+ &#39;5&#39;: 33,
+ &#39;6&#39;: 32,
+ &#39;3&#39;: 19,
+ &#39;4&#39;: 16,
+ &#39;2&#39;: 9,
+ &#39;1&#39;: 4,
+ &#39;44&#39;: 1,
+ &#39;60&#39;: 1,
+ &#39;121&#39;: 1,
+ &#39;204&#39;: 1,
+ &#39;99&#39;: 1,
+ &#39;45&#39;: 1,
+ &#39;165&#39;: 1,
+ &#39;144&#39;: 1,
+ &#39;80&#39;: 1,
+ &#39;9.75&#39;: 1,
+ &#39;50&#39;: 1,
+ &#39;11.26&#39;: 1,
+ &#39;13.5&#39;: 1,
+ &#39;11.27&#39;: 1,
+ &#39;0&#39;: 1,
+ &#39;420&#39;: 1,
+ &#39;84&#39;: 1,
+ &#39;88&#39;: 1,
+ &#39;1776&#39;: 1}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">outlier</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">numarator_outlier</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">numarator_outlier</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">outlier</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">twitter_archive_master_clean</span><span class="p">[</span><span class="n">twitter_archive_master_clean</span><span class="o">.</span><span class="n">rating_numerator</span> <span class="o">==</span> <span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">tweet_id</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">continue</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flat_outlier</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">outlier</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">:</span>
+        <span class="n">flat_outlier</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;/data&#39;</span><span class="p">)</span>
+<span class="c1"># To check manually</span>
+<span class="n">twitter_archive_master_clean</span><span class="p">[</span><span class="n">twitter_archive_master_clean</span><span class="o">.</span><span class="n">tweet_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">flat_outlier</span><span class="p">)]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;check_numerator_value.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
