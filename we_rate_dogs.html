@@ -11817,10 +11817,13 @@ I will do a wrangling, analyzing and visualization of the tweet data of the WeRa
 
 <span class="c1"># Function to get twitter connection</span>
 <span class="k">def</span> <span class="nf">twitter_connection</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">access_secret</span><span class="p">):</span>
-    <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
-    <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_secret</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;data/tweet_json.txt&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;File already exists&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+        <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_secret</span><span class="p">)</span>
 
-    <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">api</span>
 </pre></div>
