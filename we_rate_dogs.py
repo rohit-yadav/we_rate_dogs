@@ -518,3 +518,26 @@ archive_clean = archive_clean[archive_clean.full_rating.notnull()]
 
 archive_clean[archive_clean.full_rating.isnull()]
 
+
+# ##### `archive_clean`: **dog stages are not correct**
+# 
+# **Define:**
+# 
+# Extract dog stage and put it in a seperate column.
+# 
+# **Code**
+
+# In[53]:
+
+
+data = archive_clean.text.str.lower()
+archive_clean['stage'] = data.str.extract('(doggo|floofer|pupper|puppo)', expand=True)
+
+
+# **Test**
+
+# In[54]:
+
+
+archive_clean.stage.value_counts()
+
