@@ -736,3 +736,9 @@ os.chdir(os.getcwd()+'/data')
 # To check manually
 twitter_archive_master_clean[twitter_archive_master_clean.tweet_id.isin(flat_outlier)].to_csv("check_numerator_value.csv")
 
+
+# In[78]:
+
+
+twitter_archive_master_clean[(twitter_archive_master_clean.rating_numerator == '50') & (twitter_archive_master_clean.rating_denominator == '50')]
+
