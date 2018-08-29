@@ -655,3 +655,31 @@ all_tweet_clean.head()
 
 all_tweet_clean.info()
 
+
+# ##### `archive_clean`, `all_tweet_clean`: **Merge both the DataFrame**
+# 
+# **Define:**
+# 
+# Left merge to get retweetcounts and favorite counts
+# 
+# **Code**
+
+# In[69]:
+
+
+twitter_archive_master = pd.merge(archive_clean, all_tweet_clean, how='inner')
+
+
+# In[70]:
+
+
+twitter_archive_master_clean = twitter_archive_master.copy()
+
+
+# **Test**
+
+# In[71]:
+
+
+twitter_archive_master_clean.info()
+
