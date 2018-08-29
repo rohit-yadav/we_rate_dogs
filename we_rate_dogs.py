@@ -334,6 +334,10 @@ archive_clean.rating_denominator.value_counts()
 # 
 # - Remove unwanted columns
 # 
+# `twitter_archive_master_clean` **table**
+# 
+# - Remove unwanted columns from twitter_archive master
+# 
 # ### Tidiness
 # 
 # - Merge data frames to get retweets and favorite counts
