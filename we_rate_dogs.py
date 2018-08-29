@@ -743,3 +743,31 @@ twitter_archive_master_clean[twitter_archive_master_clean.tweet_id.isin(flat_out
 
 twitter_archive_master_clean[(twitter_archive_master_clean.rating_numerator == '50') & (twitter_archive_master_clean.rating_denominator == '50')]
 
+
+# ##### `twitter_archive_master_clean`: **Fixing the numerator and denominator rating of the tweet it 716439118184652801 and index is 983**
+# 
+# **Define:**
+# 
+# Setting the correct rating for both the numerator and denominator. The acutal rating is 11/10.
+# 
+# **Code**
+
+# In[79]:
+
+
+twitter_archive_master_clean.full_rating.replace('50/50', '11/10', inplace=True)
+
+
+# In[80]:
+
+
+twitter_archive_master_clean[['rating_numerator', 'rating_denominator']] = twitter_archive_master_clean.full_rating.str.split('/', expand=True)
+
+
+# **Test**
+
+# In[81]:
+
+
+twitter_archive_master_clean[twitter_archive_master_clean.tweet_id == 716439118184652801]
+
