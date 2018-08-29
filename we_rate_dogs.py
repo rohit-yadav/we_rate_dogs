@@ -337,6 +337,7 @@ archive_clean.rating_denominator.value_counts()
 # `twitter_archive_master_clean` **table**
 # 
 # - Remove unwanted columns from twitter_archive master
+# - Tweet id 716439118184652801 has wrong numerator and denominator rating
 # 
 # ### Tidiness
 # 
