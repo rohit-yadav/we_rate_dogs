@@ -16916,6 +16916,28 @@ memory usage: 328.8+ KB
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Creating variables to plot</span>
+
+<span class="c1"># Retweet count data</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">twitter_archive_master_clean</span><span class="o">.</span><span class="n">retweet_count</span>
+<span class="c1"># Favorite count data</span>
+<span class="n">fav</span> <span class="o">=</span> <span class="n">twitter_archive_master_clean</span><span class="o">.</span><span class="n">favorite_count</span>
+<span class="c1"># Month data</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">twitter_archive_master_clean</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">month</span>
+<span class="c1"># Year data</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">twitter_archive_master_clean</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>

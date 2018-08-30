@@ -910,3 +910,18 @@ plt.show()
 
 
 # Some of the most used words are **dog**, **rare**, **pup** and **oh**
+
+# In[95]:
+
+
+# Creating variables to plot
+
+# Retweet count data
+rt = twitter_archive_master_clean.retweet_count
+# Favorite count data
+fav = twitter_archive_master_clean.favorite_count
+# Month data
+month = pd.DatetimeIndex(twitter_archive_master_clean['timestamp']).month
+# Year data
+year = pd.DatetimeIndex(twitter_archive_master_clean['timestamp']).year
+
