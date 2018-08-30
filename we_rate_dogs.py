@@ -937,3 +937,5 @@ plt.ylabel("Count", fontsize=18)
 plt.title("Numeber of Tweets with Month and Year", fontsize=18)
 plt.show()
 
+
+# More tweets came during the end of 2015. However, the number of tweets decreased year on year.
