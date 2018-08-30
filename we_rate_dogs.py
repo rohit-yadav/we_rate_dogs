@@ -875,3 +875,36 @@ all_tweet_clean.to_csv("all_tweet_clean.csv")
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
+
+# In[91]:
+
+
+sns.set(style="darkgrid")
+
+
+# In[92]:
+
+
+stopwords = set(STOPWORDS)
+
+
+# In[93]:
+
+
+# Wordcloud on this data
+data = twitter_archive_master_clean.text.str.lower()
+
+
+# In[94]:
+
+
+# Wordcloud
+fig = plt.figure(figsize=(20,10))
+
+wordcloud = WordCloud(width=1300, height=600, stopwords=stopwords).generate(str(data))
+
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+plt.tight_layout(pad=0)
+plt.show()
+
