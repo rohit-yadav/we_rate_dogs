@@ -833,3 +833,25 @@ predictions_clean['p3'] = predictions_clean.p1.str.lower()
 
 predictions_clean.sample(5)
 
+
+# ##### `twitter_archive_master_clean`, `predictions_clean`: **Merge both the DataFrame**
+# 
+# **Define:**
+# 
+# Left merge to get retweetcounts and favorite counts
+# 
+# **Code**
+
+# In[87]:
+
+
+twitter_archive_master_clean = pd.merge(twitter_archive_master_clean, predictions_clean, how='inner')
+
+
+# **Test**
+
+# In[88]:
+
+
+twitter_archive_master_clean.info()
+

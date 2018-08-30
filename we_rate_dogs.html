@@ -16686,6 +16686,97 @@ memory usage: 212.8+ KB
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="twitter_archive_master_clean,-predictions_clean:-Merge-both-the-DataFrame"><code>twitter_archive_master_clean</code>, <code>predictions_clean</code>: <strong>Merge both the DataFrame</strong><a class="anchor-link" href="#twitter_archive_master_clean,-predictions_clean:-Merge-both-the-DataFrame">&#182;</a></h5><p><strong>Define:</strong></p>
+<p>Left merge to get retweetcounts and favorite counts</p>
+<p><strong>Code</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">twitter_archive_master_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">twitter_archive_master_clean</span><span class="p">,</span> <span class="n">predictions_clean</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Test</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">twitter_archive_master_clean</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 1969 entries, 0 to 1968
+Data columns (total 23 columns):
+tweet_id              1969 non-null int64
+timestamp             1969 non-null datetime64[ns]
+source                1969 non-null object
+text                  1969 non-null object
+expanded_urls         1969 non-null object
+rating_numerator      1969 non-null object
+rating_denominator    1969 non-null object
+name                  1969 non-null object
+full_rating           1969 non-null object
+stage                 338 non-null object
+favorite_count        1969 non-null int64
+retweet_count         1969 non-null int64
+jpg_url               1969 non-null object
+img_num               1969 non-null int64
+p1                    1969 non-null object
+p1_conf               1969 non-null float64
+p1_dog                1969 non-null bool
+p2                    1969 non-null object
+p2_conf               1969 non-null float64
+p2_dog                1969 non-null bool
+p3                    1969 non-null object
+p3_conf               1969 non-null float64
+p3_dog                1969 non-null bool
+dtypes: bool(3), datetime64[ns](1), float64(3), int64(4), object(12)
+memory usage: 328.8+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
