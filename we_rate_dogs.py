@@ -965,3 +965,5 @@ plt.title("Scatterplot with Linear Regression", fontsize=18)
 
 plt.show()
 
+
+# The correlation between favorite and the retweet count is very strong.
