@@ -939,3 +939,10 @@ plt.show()
 
 
 # More tweets came during the end of 2015. However, the number of tweets decreased year on year.
+
+# In[97]:
+
+
+# Correlation bewtween retweet and favorite counts
+rt.corr(fav)
+
