@@ -855,3 +855,15 @@ twitter_archive_master_clean = pd.merge(twitter_archive_master_clean, prediction
 
 twitter_archive_master_clean.info()
 
+
+# **Export all Cleaned files**
+
+# In[89]:
+
+
+# Export the data into csv
+twitter_archive_master_clean.to_csv("twitter_archive_master.csv")
+archive_clean.to_csv("archive_clean.csv")
+predictions_clean.to_csv("predictions_clean.csv")
+all_tweet_clean.to_csv("all_tweet_clean.csv")
+
