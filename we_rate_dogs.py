@@ -925,3 +925,15 @@ month = pd.DatetimeIndex(twitter_archive_master_clean['timestamp']).month
 # Year data
 year = pd.DatetimeIndex(twitter_archive_master_clean['timestamp']).year
 
+
+# In[96]:
+
+
+# Histogram of number of tweets by month and year
+plt.figure(figsize=(15,6))
+sns.countplot(month, hue=year)
+plt.xlabel("Month", fontsize=18)
+plt.ylabel("Count", fontsize=18)
+plt.title("Numeber of Tweets with Month and Year", fontsize=18)
+plt.show()
+
