@@ -801,3 +801,35 @@ twitter_archive_master_clean.drop(remove_col, axis=1, inplace=True)
 
 twitter_archive_master_clean.info()
 
+
+# ##### `predictions_clean`: **Variable values are not having consistent case also - and _ between words**
+# 
+# **Define**
+# 
+# Replace - and _ with space. Make lower case of all the values in p1, p2 and p3 columns
+# 
+# **Code**
+
+# In[85]:
+
+
+predictions_clean['p1'] = predictions_clean.p1.str.replace("_"," ")
+predictions_clean['p1'] = predictions_clean.p1.str.replace("-"," ")
+predictions_clean['p1'] = predictions_clean.p1.str.lower()
+
+predictions_clean['p2'] = predictions_clean.p2.str.replace("_"," ")
+predictions_clean['p2'] = predictions_clean.p2.str.replace("-"," ")
+predictions_clean['p2'] = predictions_clean.p2.str.lower()
+
+predictions_clean['p3'] = predictions_clean.p3.str.replace("_"," ")
+predictions_clean['p3'] = predictions_clean.p3.str.replace("-"," ")
+predictions_clean['p3'] = predictions_clean.p1.str.lower()
+
+
+# **Test**
+
+# In[86]:
+
+
+predictions_clean.sample(5)
+

@@ -14634,28 +14634,28 @@ Name: source, dtype: int64</pre>
 4/10         15
 2/10          9
 1/10          4
-50/50         1
-121/110       1
-11.26/10      1
-204/170       1
-60/50         1
 80/80         1
-7/11          1
-9.75/10       1
-420/10        1
-11.27/10      1
-144/120       1
-44/40         1
-84/70         1
-13.5/10       1
-99/90         1
-1776/10       1
-88/80         1
+121/110       1
 9/11          1
-165/150       1
-45/50         1
+7/11          1
+60/50         1
+88/80         1
+420/10        1
+11.26/10      1
 4/20          1
+9.75/10       1
+44/40         1
+204/170       1
+11.27/10      1
+13.5/10       1
+45/50         1
+1776/10       1
+144/120       1
+84/70         1
+99/90         1
 0/10          1
+165/150       1
+50/50         1
 Name: full_rating, dtype: int64</pre>
 </div>
 
@@ -14738,23 +14738,23 @@ Name: full_rating, dtype: int64</pre>
 1          4
 50         1
 13.5       1
-45         1
-88         1
-11.26      1
-99         1
-121        1
-420        1
-0          1
-204        1
 165        1
-9.75       1
-144        1
-60         1
+45         1
+11.27      1
 80         1
 44         1
-11.27      1
-1776       1
+144        1
+0          1
 84         1
+60         1
+11.26      1
+88         1
+1776       1
+420        1
+9.75       1
+204        1
+121        1
+99         1
 Name: rating_numerator, dtype: int64</pre>
 </div>
 
@@ -14792,14 +14792,14 @@ Name: rating_numerator, dtype: int64</pre>
 50        3
 11        2
 80        2
-120       1
-110       1
-90        1
-150       1
-170       1
-20        1
-40        1
 70        1
+40        1
+110       1
+150       1
+20        1
+90        1
+170       1
+120       1
 Name: rating_denominator, dtype: int64</pre>
 </div>
 
@@ -16083,23 +16083,23 @@ memory usage: 376.4+ KB
  &#39;1&#39;: 4,
  &#39;50&#39;: 1,
  &#39;13.5&#39;: 1,
- &#39;45&#39;: 1,
- &#39;88&#39;: 1,
- &#39;11.26&#39;: 1,
- &#39;99&#39;: 1,
- &#39;121&#39;: 1,
- &#39;420&#39;: 1,
- &#39;0&#39;: 1,
- &#39;204&#39;: 1,
  &#39;165&#39;: 1,
- &#39;9.75&#39;: 1,
- &#39;144&#39;: 1,
- &#39;60&#39;: 1,
+ &#39;45&#39;: 1,
+ &#39;11.27&#39;: 1,
  &#39;80&#39;: 1,
  &#39;44&#39;: 1,
- &#39;11.27&#39;: 1,
+ &#39;144&#39;: 1,
+ &#39;0&#39;: 1,
+ &#39;84&#39;: 1,
+ &#39;60&#39;: 1,
+ &#39;11.26&#39;: 1,
+ &#39;88&#39;: 1,
  &#39;1776&#39;: 1,
- &#39;84&#39;: 1}</pre>
+ &#39;420&#39;: 1,
+ &#39;9.75&#39;: 1,
+ &#39;204&#39;: 1,
+ &#39;121&#39;: 1,
+ &#39;99&#39;: 1}</pre>
 </div>
 
 </div>
@@ -16495,6 +16495,191 @@ dtypes: datetime64[ns](1), int64(3), object(8)
 memory usage: 212.8+ KB
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="predictions_clean:-Variable-values-are-not-having-consistent-case-also---and-_-between-words"><code>predictions_clean</code>: <strong>Variable values are not having consistent case also - and _ between words</strong><a class="anchor-link" href="#predictions_clean:-Variable-values-are-not-having-consistent-case-also---and-_-between-words">&#182;</a></h5><p><strong>Define</strong></p>
+<p>Replace - and _ with space. Make lower case of all the values in p1, p2 and p3 columns</p>
+<p><strong>Code</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">predictions_clean</span><span class="p">[</span><span class="s1">&#39;p3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_clean</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Test</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions_clean</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[86]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>jpg_url</th>
+      <th>img_num</th>
+      <th>p1</th>
+      <th>p1_conf</th>
+      <th>p1_dog</th>
+      <th>p2</th>
+      <th>p2_conf</th>
+      <th>p2_dog</th>
+      <th>p3</th>
+      <th>p3_conf</th>
+      <th>p3_dog</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>814</th>
+      <td>692568918515392513</td>
+      <td>https://pbs.twimg.com/media/CZx_wV2UMAArgsJ.jpg</td>
+      <td>2</td>
+      <td>golden retriever</td>
+      <td>0.636845</td>
+      <td>True</td>
+      <td>labrador retriever</td>
+      <td>0.163362</td>
+      <td>True</td>
+      <td>golden retriever</td>
+      <td>0.045554</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>668274247790391296</td>
+      <td>https://pbs.twimg.com/media/CUYv4d2WUAAziXs.jpg</td>
+      <td>1</td>
+      <td>soft coated wheaten terrier</td>
+      <td>0.406374</td>
+      <td>True</td>
+      <td>lakeland terrier</td>
+      <td>0.263854</td>
+      <td>True</td>
+      <td>soft coated wheaten terrier</td>
+      <td>0.150844</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1236</th>
+      <td>746726898085036033</td>
+      <td>https://pbs.twimg.com/media/ClzoJz7WYAELHSf.jpg</td>
+      <td>1</td>
+      <td>golden retriever</td>
+      <td>0.256505</td>
+      <td>True</td>
+      <td>labrador retriever</td>
+      <td>0.252417</td>
+      <td>True</td>
+      <td>golden retriever</td>
+      <td>0.203163</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>667435689202614272</td>
+      <td>https://pbs.twimg.com/media/CUM1OHCW4AEgGSi.jpg</td>
+      <td>1</td>
+      <td>rottweiler</td>
+      <td>0.999091</td>
+      <td>True</td>
+      <td>miniature pinscher</td>
+      <td>0.000450</td>
+      <td>True</td>
+      <td>rottweiler</td>
+      <td>0.000157</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>667455448082227200</td>
+      <td>https://pbs.twimg.com/media/CUNHMXTU8AAS3HH.jpg</td>
+      <td>1</td>
+      <td>tibetan terrier</td>
+      <td>0.676376</td>
+      <td>True</td>
+      <td>irish terrier</td>
+      <td>0.054933</td>
+      <td>True</td>
+      <td>tibetan terrier</td>
+      <td>0.040576</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
 </div>
 
 </div>
