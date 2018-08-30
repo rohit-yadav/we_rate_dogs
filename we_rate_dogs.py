@@ -967,3 +967,7 @@ plt.show()
 
 
 # The correlation between favorite and the retweet count is very strong.
+
+# ## Conclusion
+# 
+# The Twitter data was extracted to get more details of the tweet and was merged with the tweet archive data of the WeRateDogs twitter handle. Assessing was done for quality and tidiness issues and then it was cleaned to get a high-quality data for analysing and visualising and find some useful insights. Some of the findings were decreased in the number of tweets over the years, a correlation between retweets and favourite and most common words used in their tweets.
