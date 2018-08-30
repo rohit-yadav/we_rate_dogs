@@ -908,3 +908,5 @@ plt.axis('off')
 plt.tight_layout(pad=0)
 plt.show()
 
+
+# Some of the most used words are **dog**, **rare**, **pup** and **oh**
