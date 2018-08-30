@@ -946,3 +946,22 @@ plt.show()
 # Correlation bewtween retweet and favorite counts
 rt.corr(fav)
 
+
+# In[98]:
+
+
+# Scatterplot of retweet and favorite count with the linear regression line
+
+plt.figure(figsize=(15,8), frameon=False)
+
+sns.regplot(x=rt, y=fav)
+
+plt.xlim(0,10000)
+plt.ylim(0,50000)
+
+plt.xlabel("Retweet", fontsize=18)
+plt.ylabel("Favorite", fontsize=18)
+plt.title("Scatterplot with Linear Regression", fontsize=18)
+
+plt.show()
+
