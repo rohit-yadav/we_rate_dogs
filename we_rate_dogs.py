@@ -867,3 +867,11 @@ archive_clean.to_csv("archive_clean.csv")
 predictions_clean.to_csv("predictions_clean.csv")
 all_tweet_clean.to_csv("all_tweet_clean.csv")
 
+
+# ## Visualization
+
+# In[90]:
+
+
+get_ipython().run_line_magic('matplotlib', 'inline')
+
