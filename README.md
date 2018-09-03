@@ -19,3 +19,12 @@ consumer_secret = 'HIDDEN'
 access_token = 'HIDDEN'
 access_secret = 'HIDDEN'
 ```
+## Commit message style
+
+- **Docs:** For document change/update
+- **Gather:** For Wrangling process - Reading/Gathering
+- **Assess:** For Wrangling process - Assess
+- **Clean:**  For wrangling process - Cleaning quality and tidiness issues, may include test codes too
+- **Viz:** For visualization
+- **Refactor:** Refactoring existing code
+- **Chore:** Package manager 
